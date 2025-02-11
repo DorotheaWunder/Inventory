@@ -8,6 +8,8 @@ int main(void)
 {
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Inventory UI");
 
+    InitializeInventory(items);
+
     SetTargetFPS(60);
 
     while (!WindowShouldClose()) // Main game loop
@@ -20,7 +22,7 @@ int main(void)
         DrawUIPanel(controlPanel);
 
         DrawTableHeader(tableHeader);
-        //DrawTableContent(tableContent);
+        DrawTableContent(tableContent);
 
 
         EndDrawing();

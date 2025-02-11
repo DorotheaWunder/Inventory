@@ -4,8 +4,8 @@
 #include "raylib.h"
 #include "items.h"
 
-#define SCREEN_WIDTH 800
-#define SCREEN_HEIGHT 600
+#define SCREEN_WIDTH 1580
+#define SCREEN_HEIGHT 900
 
 typedef struct Panel
 {
