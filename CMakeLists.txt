@@ -29,7 +29,13 @@ else()
     message(STATUS "Using local ${LIB1}")
 endif()
 
-add_executable(Inventory main.c)
+add_executable(Inventory main.c
+        Items.h
+        HashSystem.h
+        Items.c
+        HashSystem.c
+        UI.h
+        UI.c)
 
 # set the include directory
 target_include_directories(Inventory PRIVATE ${raylib_INCLUDE_DIRS})

@@ -1,7 +1,32 @@
 ﻿#include <stdio.h>
+#include "raylib.h"
+#include "ui.h"
+#include "items.h"
+
 
 int main(void)
 {
-    printf("Hello, World!\n");
+    InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Inventory UI");
+
+    SetTargetFPS(60);
+
+    while (!WindowShouldClose()) // Main game loop
+    {
+        BeginDrawing();
+        ClearBackground(BLACK);
+
+
+        DrawUIPanel(inventoryPanel);
+        DrawUIPanel(controlPanel);
+
+        DrawTableHeader(tableHeader);
+        //DrawTableContent(tableContent);
+
+
+        EndDrawing();
+    }
+
+    CloseWindow();
+
     return 0;
 }
