@@ -34,22 +34,11 @@ typedef struct TableContent
 typedef struct Button
 {
     Rectangle rectangle;
-
-    // int posX;
-    // int posY;
-
     Color defaultColor;
     Color hoverColor;
-
     const char* text;
     //trigger method
 } Button;
-
-
-
-
-
-
 
 
 void InitPanelElement(Panel* panel, Rectangle rectangle, Color color, const char* header);
@@ -65,19 +54,12 @@ void DrawTableHeader(TableHeader header);
 void DrawTableContent(TableContent content);
 void DrawTable(TableHeader header, TableContent content);
 
-
-
-
-
 void InitButtonElement(Button* button, Rectangle rectangle, Color defColor, Color hovColor, const char* text);
+void DrawButtonElement(Button button);
+void DrawAllButtons();
 
 
-
-
-
-
-
-
+void InitializeMenu();
 void DrawMenu();
 
 #endif //UI_H

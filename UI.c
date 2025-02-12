@@ -132,6 +132,10 @@ void DrawTable(TableHeader header, TableContent content)
 }
 
 //---------------------------------------------------------------------------------- Button
+Button byName;
+Button byValue;
+Button byRarity;
+Button byWeight;
 
 void InitButtonElement(Button* button, Rectangle rectangle, Color defColor, Color hovColor, const char* text)
 {
@@ -141,25 +145,65 @@ void InitButtonElement(Button* button, Rectangle rectangle, Color defColor, Colo
     button->text = text;
 }
 
-
 bool IsHovering(Button button)
 {
     Vector2 mousePosition = GetMousePosition();
-    //return CheckCollisionPointTriangle(mousePosition, (Rectangle) );
+    return CheckCollisionPointRec(mousePosition, button.rectangle);
 }
 
-void DrawButton(Button button)
+void InitnializeButtons()
 {
-    //if hovering
+    InitButtonElement(&byName,
+        (Rectangle){ 1350, 100, 200, 40 },
+        DARKGRAY, LIGHTGRAY,
+        "NAME");
+
+    InitButtonElement(&byValue,
+        (Rectangle){ 1350, 160, 200, 40 },
+        DARKGRAY, LIGHTGRAY,
+        "VALUE");
+
+    InitButtonElement(&byRarity,
+        (Rectangle){ 1350, 230, 200, 40},
+        DARKGRAY, LIGHTGRAY,
+        "RARITY");
+
+    InitButtonElement(&byWeight,
+        (Rectangle){ 1350, 300, 200, 40 },
+        DARKGRAY, LIGHTGRAY,
+        "WEIGHT");
 }
 
-//--- get mouse position?,check hover; check click
+void DrawButtonElement(Button button)
+{
+    Color buttonColor = IsHovering(button) ? button.hoverColor : button.defaultColor;
+    DrawRectangleRec(button.rectangle, buttonColor);
+    DrawText(button.text, button.rectangle.x + 10, button.rectangle.y + 10, 20, BLACK);
+}
+
+void DrawAllButtons()
+{
+    DrawButtonElement(byName);
+    DrawButtonElement(byValue);
+    DrawButtonElement(byRarity);
+    DrawButtonElement(byWeight);
+}
+
+//click function for buttons: here or to the algorithm?
 
 
 //---------------------------------------------------------------------------------- Whole UI
+
+void InitializeMenu()
+{
+    InitializePanels();
+    InitializeTable();
+    InitnializeButtons();
+}
 
 void DrawMenu()
 {
     DrawAllPanels();
     DrawTable(tableHeader, tableContent);
+    DrawAllButtons();
 }

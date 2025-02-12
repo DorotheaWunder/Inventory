@@ -8,8 +8,7 @@ int main(void)
 {
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Inventory UI");
 
-    InitializePanels();
-    InitializeTable();
+    InitializeMenu();
 
     SetTargetFPS(60);
 
