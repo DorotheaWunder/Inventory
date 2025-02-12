@@ -35,7 +35,9 @@ add_executable(Inventory main.c
         Items.c
         HashSystem.c
         UI.h
-        UI.c)
+        UI.c
+        Algorithms.h
+        Algorithms.c)
 
 # set the include directory
 target_include_directories(Inventory PRIVATE ${raylib_INCLUDE_DIRS})

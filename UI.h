@@ -31,42 +31,53 @@ typedef struct TableContent
     int fontSize;
 } TableContent;
 
+typedef struct Button
+{
+    Rectangle rectangle;
+
+    // int posX;
+    // int posY;
+
+    Color defaultColor;
+    Color hoverColor;
+
+    const char* text;
+    //trigger method
+} Button;
 
 
 
 
 
-extern Panel inventoryPanel;
-extern Panel controlPanel;
 
-extern TableHeader tableHeader;
-extern TableContent tableContent;
 
-void DrawUIPanel(Panel panel);
+
+void InitPanelElement(Panel* panel, Rectangle rectangle, Color color, const char* header);
+void InitializePanels();
+void DrawPanelElement(Panel panel);
+void DrawAllPanels();
+
+void InitHeaderElement(TableHeader* header, Rectangle rectangle, Color color, const char* headers[4], int fontSize);
+void InitContentElement(TableContent* content, Rectangle rectangle, Color color, Item** items, int numRows, int fontSize);
+void PositionTextInCol(const char* text, float x, float y, float fontSize, Color color, float padding);
+void InitializeTable();
 void DrawTableHeader(TableHeader header);
 void DrawTableContent(TableContent content);
 void DrawTable(TableHeader header, TableContent content);
+
+
+
+
+
+void InitButtonElement(Button* button, Rectangle rectangle, Color defColor, Color hovColor, const char* text);
+
+
+
+
+
+
+
+
 void DrawMenu();
 
 #endif //UI_H
-
-
-
-
-
-//
-//
-// typedef struct Button
-// {
-//     float height;
-//     float width;
-//
-//     int posX;
-//     int posY;
-//
-//     Color defaultColor;
-//     Color hoverColor;
-//
-//     //text
-//     //trigger method
-// } Button;

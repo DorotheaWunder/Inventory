@@ -2,15 +2,17 @@
 #include "raylib.h"
 #include "ui.h"
 #include "items.h"
-
+#include "algorithms.h"
 
 int main(void)
 {
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Inventory UI");
 
-    InitializeInventory(items);
+    InitializePanels();
+    InitializeTable();
 
     SetTargetFPS(60);
+
 
     while (!WindowShouldClose()) // Main game loop
     {
@@ -18,11 +20,9 @@ int main(void)
         ClearBackground(BLACK);
 
 
-        DrawUIPanel(inventoryPanel);
-        DrawUIPanel(controlPanel);
+        DrawMenu();
 
-        DrawTableHeader(tableHeader);
-        DrawTableContent(tableContent);
+        //BubbleSort(items, INVENTORY_SIZE);
 
 
         EndDrawing();

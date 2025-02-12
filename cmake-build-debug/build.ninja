@@ -81,6 +81,14 @@ build CMakeFiles/Inventory.dir/UI.c.obj: C_COMPILER__Inventory_unscanned_Debug C
   OBJECT_DIR = CMakeFiles\Inventory.dir
   OBJECT_FILE_DIR = CMakeFiles\Inventory.dir
 
+build CMakeFiles/Inventory.dir/Algorithms.c.obj: C_COMPILER__Inventory_unscanned_Debug C$:/Users/Administratör/CLionProjects/Inventory/Algorithms.c || cmake_object_order_depends_target_Inventory
+  DEFINES = -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP
+  DEP_FILE = CMakeFiles\Inventory.dir\Algorithms.c.obj.d
+  FLAGS = -g -std=gnu99 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/Administratör/CLionProjects/Inventory/cmake-build-debug/_deps/raylib-src/src -IC:/Users/Administratör/CLionProjects/Inventory/cmake-build-debug/_deps/raylib-src/src/external/glfw/include
+  OBJECT_DIR = CMakeFiles\Inventory.dir
+  OBJECT_FILE_DIR = CMakeFiles\Inventory.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Inventory
@@ -89,7 +97,7 @@ build CMakeFiles/Inventory.dir/UI.c.obj: C_COMPILER__Inventory_unscanned_Debug C
 #############################################
 # Link the executable Inventory.exe
 
-build Inventory.exe: C_EXECUTABLE_LINKER__Inventory_Debug CMakeFiles/Inventory.dir/main.c.obj CMakeFiles/Inventory.dir/Items.c.obj CMakeFiles/Inventory.dir/HashSystem.c.obj CMakeFiles/Inventory.dir/UI.c.obj | _deps/raylib-build/raylib/libraylib.a || _deps/raylib-build/raylib/external/glfw/src/glfw _deps/raylib-build/raylib/libraylib.a
+build Inventory.exe: C_EXECUTABLE_LINKER__Inventory_Debug CMakeFiles/Inventory.dir/main.c.obj CMakeFiles/Inventory.dir/Items.c.obj CMakeFiles/Inventory.dir/HashSystem.c.obj CMakeFiles/Inventory.dir/UI.c.obj CMakeFiles/Inventory.dir/Algorithms.c.obj | _deps/raylib-build/raylib/libraylib.a || _deps/raylib-build/raylib/external/glfw/src/glfw _deps/raylib-build/raylib/libraylib.a
   FLAGS = -g
   LINK_LIBRARIES = _deps/raylib-build/raylib/libraylib.a  -lopengl32  -lglu32  -lwinmm  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Inventory.dir
