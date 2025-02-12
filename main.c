@@ -13,15 +13,18 @@ int main(void)
     SetTargetFPS(60);
 
 
-    while (!WindowShouldClose()) // Main game loop
+    while (!WindowShouldClose())
     {
+        UpdateMenu(inventory, INVENTORY_SIZE);
+
+
         BeginDrawing();
         ClearBackground(BLACK);
 
 
         DrawMenu();
 
-        //BubbleSort(items, INVENTORY_SIZE);
+
 
 
         EndDrawing();

@@ -3,6 +3,7 @@
 #include "raylib.h"
 #include "ui.h"
 #include "items.h"
+#include "algorithms.h"
 
 //---------------------------------------------------------------------------------- Panels
 Panel inventoryPanel;
@@ -75,7 +76,7 @@ void InitContentElement(TableContent* content, Rectangle rectangle, Color color,
 void InitializeTable()
 {
     const char* headers[4] = { "Name", "Value", "Rarity", "Weight" };
-    InitializeInventory(items);
+    InitializeInventory(inventory);
     //would this be where I hash?
 
     InitHeaderElement(&tableHeader,
@@ -87,7 +88,7 @@ void InitializeTable()
     InitContentElement(&tableContent,
         (Rectangle){ 30, 150, 600, 10 },
         LIGHTGRAY,
-        items,
+        inventory,
         INVENTORY_SIZE,
         25);
 }
@@ -189,8 +190,17 @@ void DrawAllButtons()
     DrawButtonElement(byWeight);
 }
 
-//click function for buttons: here or to the algorithm?
-
+Category SelectCategory()
+{
+    if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+    {
+        if (IsHovering(byName)) return NAME;
+        if (IsHovering(byValue)) return VALUE;
+        if (IsHovering(byRarity)) return RARITY;
+        if (IsHovering(byWeight)) return WEIGHT;
+    }
+    return -1;
+}
 
 //---------------------------------------------------------------------------------- Whole UI
 
@@ -206,4 +216,13 @@ void DrawMenu()
     DrawAllPanels();
     DrawTable(tableHeader, tableContent);
     DrawAllButtons();
+}
+
+void UpdateMenu(Item** inventory, int size)
+{
+    Category selectedCategory = SelectCategory();
+
+    if (selectedCategory != -1) {
+        SortInventory(inventory, size, selectedCategory);
+    }
 }

@@ -58,8 +58,8 @@ void InitButtonElement(Button* button, Rectangle rectangle, Color defColor, Colo
 void DrawButtonElement(Button button);
 void DrawAllButtons();
 
-
 void InitializeMenu();
 void DrawMenu();
+void UpdateMenu(Item** inventory, int size);
 
 #endif //UI_H

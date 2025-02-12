@@ -10,10 +10,10 @@ typedef struct Item
 } Item;
 
 #define INVENTORY_SIZE 15
-extern Item* items[];
+extern Item* inventory[];
 
 Item* createItem(const char* name, int value, int rarity, float weight);
-void InitializeInventory(Item** inventory);
+void InitializeInventory();
 
 
 #endif //ITEMS_H
